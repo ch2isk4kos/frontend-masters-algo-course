@@ -33,7 +33,7 @@ Where do you loop over the input?</br>
 That is an effective way to calculate Big O.
 
 Below is an algorithm that represents an _N_ relationship.</br>
-The has a time complexity of **O(_N_)**.
+It has a time complexity of **O(_N_)**.
 
 ```ts
 function sumCharCodes(n: string): number {
