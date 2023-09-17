@@ -3,11 +3,12 @@
 A way to categorize the time or memory of an algorithm based on input.
 Generalizes the growth of an algorithm.
 
-It's _not_ an exact measurement. Will _not_ determine how many CPU cycles it takes.
+It's _not_ an exact measurement.</br>
+Will _not_ determine how many CPU cycles it takes.
 
 O of _N_ means your algorithm will grow linearily based on input.
 
-Big O helps make decisions about which data structures and algorithms to use.
+Big O helps make decisions about which data structures and algorithms to use.</br>
 As your input grows, how fast does computation/memory grow?
 
 ```ts
@@ -28,8 +29,12 @@ Growth depends on:
 - how much memory you're attempting to allocate
 - the GC pressure
 
-These are not _free_ trade-offs.
+These are not _free_ trade-offs.</br>
 You can't trade time for memory because it takes time to make memory.
+
+**NOTE**</br>
+Languages like _Go_ or _JavaScript_ cost more because memory can be kept around,</br>
+it grows faster and causes complete haults in your program for cleanup.
 
 ```ts
 function sumCharCodes(n: string): number {
