@@ -58,6 +58,8 @@ const num = sumCharCodes(str);
 
 ### Contants are dropped
 
+Big O is meant to describe the upper bound (growth) of the algorithm.</br>
+The _constant_ eventually becomes irrelevant.
 
 ```ts
 function sumCharCodes(n: string): number {
