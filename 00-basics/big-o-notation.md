@@ -30,7 +30,7 @@ Growth depends on:
 - the GC pressure
 
 These are not _free_ trade-offs.</br>
-You can't trade time for memory because it takes time to make memory.
+You can't trade time for memory because it takes time to create memory.
 
 **NOTE**</br>
 Languages like _Go_ or _JavaScript_ cost more because memory can be kept around,</br>
