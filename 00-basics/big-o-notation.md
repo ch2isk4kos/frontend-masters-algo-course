@@ -11,16 +11,6 @@ O of _N_ means your algorithm will grow linearily based on input.
 Big O helps make decisions about which data structures and algorithms to use.</br>
 As your input grows, how fast does computation/memory grow?
 
-```ts
-function sumCharCodes(n: string): number {
-  let sum = 0;
-  for (let i = 0; i < n.length; ++i) {
-    sum += n.charCodeAt(i);
-  }
-  return sum;
-}
-```
-
 ## Growth in respect to the input
 
 Growth depends on:
