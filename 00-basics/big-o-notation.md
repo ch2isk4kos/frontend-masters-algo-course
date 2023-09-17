@@ -26,7 +26,14 @@ You can't trade time for memory because it takes time to create memory.
 Languages like _Go_ or _JavaScript_ cost more because memory can be kept around,</br>
 it grows faster and causes complete haults in your program for cleanup.
 
-## How does a program grow?
+## Calculating Big O Notation
+
+Look for loops.</br>
+Where do you loop over the input?</br>
+That is an effective way to calculate Big O.
+
+Below represents an _N_ relationship.</br>
+The algorithms time complexity has a Big O score of **O(_N_)**.
 
 ```ts
 function sumCharCodes(n: string): number {
