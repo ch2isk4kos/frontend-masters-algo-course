@@ -1,6 +1,6 @@
-function sumCharCodes(str) {
+function sumCharCodes(n: string): number {
   let sum = 0;
-  for (let i = 0; i < str.length; ++i) {
+  for (let i = 0; i < n.length; ++i) {
     // ["C", "h", "r", "i", "s", " ", "K", "a", "k", "o", "s" ]
     sum += str.charCodeAt(i);
   }
