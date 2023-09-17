@@ -11,7 +11,9 @@ O of _N_ means your algorithm will grow linearily based on input.
 Big O helps make decisions about which data structures and algorithms to use.</br>
 As your input grows, how fast does computation/memory grow?
 
-## Growth in respect to the input
+## Calculating Big O Notation
+
+The growth of an algorithm is in respect to the input.
 
 Growth depends on:
 
@@ -26,7 +28,7 @@ You can't trade time for memory because it takes time to create memory.
 Languages like _Go_ or _JavaScript_ cost more because memory can be kept around,</br>
 it grows faster and causes complete haults in your program for cleanup.
 
-## Calculating Big O Notation
+### How do you calculate growth?
 
 Look for loops.</br>
 Where do you loop over the input?</br>
@@ -52,4 +54,27 @@ const num = sumCharCodes(str);
 // it grows linearily
 // if the string grows by 50% -> the function will slow down by 50%
 // every character in the string costs a loop 
+```
+
+### Contants are dropped
+
+
+```ts
+function sumCharCodes(n: string): number {
+  let sum = 0;
+  // # 1
+  for (let i = 0; i < n.length; ++i) {
+    sum += n.charCodeAt(i);
+  }
+  // 2
+  for (let i = 0; i < n.length; ++i) {
+    sum += n.charCodeAt(i);
+  }
+  return sum;
+}
+
+const str = "Chris Kakos";
+const num = sumCharCodes(str);
+
+// 
 ```
