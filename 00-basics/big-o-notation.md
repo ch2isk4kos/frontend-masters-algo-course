@@ -5,3 +5,5 @@ Generalizes the growth of an algorithm.
 
 It's _not_ an exact measurement.
 Will _not_ determine how many CPU cycles it takes.
+
+O of _N_ means your algorithm will grow linearily based on input.
