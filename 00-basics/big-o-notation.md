@@ -37,5 +37,12 @@ function sumCharCodes(n: string): number {
   return sum;
 }
 
-// 
+const str = "Chris Kakos";
+const num = sumCharCodes(str);
+
+// strings are effectively arrays
+// the for loop has to executive the length of the string
+// it grows linearily
+// if the string grows by 50% -> the function will slow down by 50%
+// every character in the string costs a loop 
 ```
