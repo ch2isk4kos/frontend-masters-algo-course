@@ -1,6 +1,6 @@
 # Big O Notation
 
-A way to categorize the time or memory of an algorithm based on input.
+A way to categorize the time or memory of an algorithm based on input.</br>
 Generalizes the growth of an algorithm.
 
 It's _not_ an exact measurement.</br>
