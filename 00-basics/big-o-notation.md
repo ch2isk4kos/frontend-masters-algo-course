@@ -117,3 +117,7 @@ const num = sumCharCodes(str);
 // Although you're returning if the instance variable === "E"
 // you have to prepare to loop through the entire length of the string
 ```
+
+## Big O Complexity Time
+
+![Big-O Complexity](https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fi.stack.imgur.com%2FWcBRI.png&f=1&nofb=1&ipt=d17d6cfe919e682cfbe9643ae45477c934feb60c523092de2963bffcaf08d445&ipo=images)
