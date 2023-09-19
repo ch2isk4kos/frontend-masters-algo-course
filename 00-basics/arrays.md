@@ -60,5 +60,5 @@ You must reallocate an array in order to grow it.</br>
 ### Deletion
 
 You don't technically delete something from contiguous memory.</br>
-Multiplies it by the offset.</br>
-Allocates it to the memory address.</br>
+Deletion depends on how your program interprets the process.</br>
+.</br>
