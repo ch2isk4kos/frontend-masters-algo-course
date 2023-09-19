@@ -7,7 +7,12 @@ An array is a _contiguous_ (connecting w/o a break) memory space.
   0        ...      N
 ```
 
-Below is a visualization of the underlying fundamentals of an array.
+Traditional (static) arrays do not have a _.push_ (insert) or _.pop_ (remove) methods attached to it.</br>
+In legacy languages, there isn't even _.length_</br>
+
+You'd have to pass the length of the array as well as the pointer to the beginning in order to get back that result.</br>
+
+Below is a visualization of the underlying fundamentals of an array.</br>
 
 ```ts
 // if const a = [] isn't an array, what is it?
