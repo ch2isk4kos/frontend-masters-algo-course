@@ -117,4 +117,3 @@ const num = sumCharCodes(str);
 // Although you're returning if the instance variable === "E"
 // you have to prepare to loop through the entire length of the string
 ```
-
