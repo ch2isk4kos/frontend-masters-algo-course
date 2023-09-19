@@ -120,4 +120,4 @@ const num = sumCharCodes(str);
 
 ## Big O Complexity Time
 
-![Big-O Complexity](https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fi.stack.imgur.com%2FWcBRI.png&f=1&nofb=1&ipt=d17d6cfe919e682cfbe9643ae45477c934feb60c523092de2963bffcaf08d445&ipo=images)
+![Big-O Complexity](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmiro.medium.com%2Fproxy%2F1*KfZYFUT2OKfjekJlCeYvuQ.jpeg&f=1&nofb=1&ipt=5a0c16d3116050283ca7d795373c17d8b7cd03ba4c01f41e3fc40caa3e02094e&ipo=images)
