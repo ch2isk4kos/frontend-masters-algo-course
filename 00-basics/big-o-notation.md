@@ -121,3 +121,24 @@ const num = sumCharCodes(str);
 ## Big O Complexity
 
 ![Big-O Complexity](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmiro.medium.com%2Fproxy%2F1*KfZYFUT2OKfjekJlCeYvuQ.jpeg&f=1&nofb=1&ipt=5a0c16d3116050283ca7d795373c17d8b7cd03ba4c01f41e3fc40caa3e02094e&ipo=images)
+
+</br>
+
+### O(1)
+
+Constant time.
+No matter how large the input is, it performs the same set of operations.
+
+### O(logn)
+
+Grows linearily.
+
+### O(n)
+
+### O(nlogn)
+
+### O(n^2)
+
+### O(2^n)
+
+### O(!n)
