@@ -93,4 +93,28 @@ const num = sumCharCodes(str);
 // N = 10,000; O(10N) = 100,000; O(N^2) = 100,000,000 -> 1000x bigger
 ```
 
-O(N^2) grows disproportionately larger in comparison to whatever constant is in front of O(N).
+**NOTE**</br>
+O(N^2) grows disproportionately larger in comparison to whatever constant is in front of O(N).</br>
+
+### Worst case is _usually_ how to measure
+
+```ts
+function sumCharCodes(n: string): number {
+  let sum = 0;
+  for (let i = 0; i < n.length; ++i) {
+    const charCode = n.charCodeAt(i);
+    if (charCode === 69) return sum;
+    sum += charCode; 
+  }
+  return sum; 
+}
+
+const str = "Chris Kakos";
+const num = sumCharCodes(str);
+
+// O(2N) == O(N)
+
+// Although you're returning if the instance variable === "E"
+// you have to prepare to loop through the entire length of the string
+```
+
