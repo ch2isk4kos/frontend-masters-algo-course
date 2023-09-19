@@ -61,6 +61,8 @@ const num = sumCharCodes(str);
 Big O is meant to describe the upper bound (growth) of the algorithm.</br>
 The _constant_ eventually becomes irrelevant.
 
+O(100N) is faster than O(N^2)
+
 ```ts
 function sumCharCodes(n: string): number {
   let sum = 0;
