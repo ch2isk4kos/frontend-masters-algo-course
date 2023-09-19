@@ -52,13 +52,13 @@ Multiply it by the offset.</br>
 
 > a + width * offset
 
-Technically overwrites the memory space.</br>
+Insertion technically overwrites the memory space.</br>
 Does NOT grow the array into more memory.</br>
 
 You must reallocate an array in order to grow it.</br>
 
 ### Deletion
 
-Takes the width of the type.</br>
+You don't technically delete something from contiguous memory.</br>
 Multiplies it by the offset.</br>
 Allocates it to the memory address.</br>
