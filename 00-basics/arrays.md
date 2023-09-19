@@ -11,6 +11,7 @@ Below is a visualization of the underlying fundamentals of an array.
 
 ```ts
 // if const a = [] isn't an array, what is it?
+
 const a = new ArrayBuffer(6);
 console.log(a) // ArrayBuffer { [Uint8Contents]: <00 00 00 00 00 00>, byteLength: 6 }
 
@@ -28,4 +29,36 @@ console.log(a) // ArrayBuffer { [Uint8Contents]: <2d 00 2d 00 45 45>, byteLength
 
 a16[2] = 0x45;
 console.log(a) // ArrayBuffer { [Uint8Contents]: <2d 00 2d 00 45 00>, byteLength: 6 }
+
+// const a = [] -> fundamentally not an array
+// in the most basic fundamental unit it might be but technically isn't
 ```
+
+</br>
+
+## Array Operations
+
+### Finding a Specific Index
+
+Takes the width of the type.</br>
+Multiplies it by the offset.</br>
+Allocates it to the memory address.</br>
+
+### Insertion
+
+Go to an index of the array.</br>
+Add the width of the type (usually specified in bytes).</br>
+Multiply it by the offset.</br>
+
+> a + width * offset
+
+Technically overwrites the memory space.</br>
+Does NOT grow the array into more memory.</br>
+
+You must reallocate an array in order to grow it.</br>
+
+### Deletion
+
+Takes the width of the type.</br>
+Multiplies it by the offset.</br>
+Allocates it to the memory address.</br>
