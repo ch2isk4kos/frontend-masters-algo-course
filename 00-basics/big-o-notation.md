@@ -93,12 +93,13 @@ const num = sumCharCodes(str);
 // N = 10,000; O(10N) = 100,000; O(N^2) = 100,000,000 -> 1000x bigger
 ```
 
-**NOTE**</br>
 O(N^2) grows disproportionately larger in comparison to whatever constant is in front of O(N).</br>
 
 ### Worst case is _usually_ how to measure
 
 ```ts
+// O(N)
+
 function sumCharCodes(n: string): number {
   let sum = 0;
   for (let i = 0; i < n.length; ++i) {
@@ -112,32 +113,28 @@ function sumCharCodes(n: string): number {
 const str = "Chris Kakos";
 const num = sumCharCodes(str);
 
-// O(2N) == O(N)
-
 // Although you're returning if the instance variable === "E"
 // you have to prepare to loop through the entire length of the string
 ```
 
-### O(N^2)
-
 ```ts
+// O(N^2)
+
 function sumCharCodes(n: string): number {
   let sum = 0;
   for (let i = 0; i < n.length; ++i) {
-    for (let i = 0; i < n.length; ++i) {
-      sum += n.charCodeAt(i);
+    for (let j = 0; j < n.length; ++j) {
+      sum += charCode;
     }
   }
-  return sum; 
+  return sum;
 }
 
 const str = "Chris Kakos";
 const num = sumCharCodes(str);
 
-// O(2N) == O(N)
-
-// Although you're returning if the instance variable === "E"
-// you have to prepare to loop through the entire length of the string
+// For every character in the string -> loop over ever character in the string
+// i.e.: computing the area of a square
 ```
 
 ## Big O Complexity
@@ -164,3 +161,9 @@ Grows linearily.
 ### O(2^n)
 
 ### O(!n)
+
+### Important Concepts
+
+1. Growth with respect to the input
+2. Constants are dropped
+3. Worst case is _usually_ the way to measure
