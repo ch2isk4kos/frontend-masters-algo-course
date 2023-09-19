@@ -44,6 +44,8 @@ Takes the width of the type.</br>
 Multiplies it by the offset.</br>
 Allocates it to the memory address.</br>
 
+Constant Time: O(1)</br>
+
 ### Insertion
 
 Go to an index of the array.</br>
@@ -57,8 +59,14 @@ Does NOT grow the array into more memory.</br>
 
 You must reallocate an array in order to grow it.</br>
 
+Constant Time: O(1)</br>
+
 ### Deletion
 
 You don't technically delete something from contiguous memory.</br>
 Deletion depends on how your program interprets the process.</br>
-.</br>
+That's why JavaScript created the _null_ datatype.</br>
+
+_null_ is a named way of saying there is nothing in this spot.</br>
+
+Constant Time: O(1)</br>
