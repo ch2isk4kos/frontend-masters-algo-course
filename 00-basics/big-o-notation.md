@@ -118,6 +118,28 @@ const num = sumCharCodes(str);
 // you have to prepare to loop through the entire length of the string
 ```
 
+### O(N^2)
+
+```ts
+function sumCharCodes(n: string): number {
+  let sum = 0;
+  for (let i = 0; i < n.length; ++i) {
+    for (let i = 0; i < n.length; ++i) {
+      sum += n.charCodeAt(i);
+    }
+  }
+  return sum; 
+}
+
+const str = "Chris Kakos";
+const num = sumCharCodes(str);
+
+// O(2N) == O(N)
+
+// Although you're returning if the instance variable === "E"
+// you have to prepare to loop through the entire length of the string
+```
+
 ## Big O Complexity
 
 ![Big-O Complexity](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmiro.medium.com%2Fproxy%2F1*KfZYFUT2OKfjekJlCeYvuQ.jpeg&f=1&nofb=1&ipt=5a0c16d3116050283ca7d795373c17d8b7cd03ba4c01f41e3fc40caa3e02094e&ipo=images)
