@@ -162,7 +162,7 @@ Grows linearily.
 
 ### O(!n)
 
-### Important Concepts
+## Important Concepts
 
 1. Growth with respect to the input
 2. Constants are dropped
