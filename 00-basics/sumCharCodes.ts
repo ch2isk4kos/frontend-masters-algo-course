@@ -10,3 +10,5 @@ function sumCharCodes(n: string): number {
 const str = "Chris Kakos";
 const num = sumCharCodes(str);
 console.log(num); // 1042
+
+// O(N)
