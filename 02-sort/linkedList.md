@@ -9,19 +9,15 @@ A _doubly_ linked list is bi-directional.</br>
 SINGLY LINKED LIST:
 
   Node A:
-    id: 0
       payload: { ... }
       next: { Node B }
   Node B:
-    id: 0
       payload: { ... }
       next: { Node C }
   Node C:
-    id: 0
     payload: { ... }
     next: { Node D }
   Node D:
-    id: 0
     payload: { ... }
     next: { Node E }
 ```
@@ -32,22 +28,18 @@ SINGLY LINKED LIST:
 DOUBLY LINKED LIST:
 
   Node A:
-    id: 0
       payload: { ... }
       prev: { }
       next: { Node B }
   Node B:
-    id: 1
       payload: { ... }
       prev: { Node A }
       next: { Node C }
   Node C:
-    id: 2
     payload: { ... }
     prev: { Node B }
     next: { Node D }
   Node D:
-    id: 3
     payload: { ... }
     prev: { Node C }
     next: { Node E }
@@ -56,3 +48,5 @@ DOUBLY LINKED LIST:
 </br>
 
 _Insertion_ and _deletion_ operations in a linked list run fast.</br>
+If you set a piece of memory on an object runs in constant time.</br>
+</br>
