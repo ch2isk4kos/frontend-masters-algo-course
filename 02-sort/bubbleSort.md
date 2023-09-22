@@ -40,3 +40,5 @@ To implement bubble sort, check x<sub>i</sub> against x<sub>i</sub> + 1 and only
 [ 1, 2, 3, 4, 7]
 -------------------------------------
 ```
+
+Bubble Sort has a runtime of **O(N<sup>2</sup>)**.</br>
