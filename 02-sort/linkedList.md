@@ -52,3 +52,7 @@ DOUBLY LINKED LIST:
     prev: { Node C }
     next: { Node E }
 ```
+
+</br>
+
+_Insertion_ and _deletion_ operations in a linked list run fast.</br>
