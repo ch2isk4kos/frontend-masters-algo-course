@@ -1,4 +1,4 @@
-# Linked List
+# Linked List(s)
 
 Each node on the chain contains a reference to the next node.</br>
 
