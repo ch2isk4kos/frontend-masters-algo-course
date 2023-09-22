@@ -45,11 +45,10 @@ DOUBLY LINKED LIST:
     next: { Node E }
 ```
 
-</br>
+## Insertion and Deletion of Nodes
 
 _Insertion_ and _deletion_ operations in a linked list run fast.</br>
-If you set a piece of memory on an object runs in constant time.</br>
 
+Setting a piece of memory on an object will run in constant time.</br>
 
-
-</br>
+Both _insertion_ and _deletion_ have a runtime of **O(1)**.</br>
