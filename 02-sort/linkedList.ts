@@ -30,4 +30,8 @@ export class DoublyLinkedList {
   public getLength(): number {
     return this.size;
   }
+
+  public isEmpty(): boolean {
+    return this.size <= 0;
+  }
 }
