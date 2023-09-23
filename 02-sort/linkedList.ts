@@ -34,4 +34,14 @@ export class DoublyLinkedList {
   public isEmpty(): boolean {
     return this.size <= 0;
   }
+
+  public prepend(value: any): void {
+    if (this.isEmpty()) {
+      let node = new ListNode();
+      node.value = value;
+      this.head = node;
+      this.tail = node;
+      this.size++;
+    }
+  }
 }
