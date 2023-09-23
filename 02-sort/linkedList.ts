@@ -11,7 +11,7 @@
 // }
 
 export class ListNode<T> {
-  public value: any;
+  public value: T;
   public next: ListNode<T> | null = null;
   public prev: ListNode<T> | null = null;
 }
@@ -39,9 +39,54 @@ export class DoublyLinkedList {
     if (this.isEmpty()) {
       let node = new ListNode();
       node.value = value;
+      this.size++;
+
+      if (this.tail === null) {
+        this.head = node;
+        this.tail = node;
+      }
+    }
+  }
+
+  public append(value: any): void {
+    if (this.isEmpty()) {
+      let node = new ListNode();
+      node.value = value;
       this.head = node;
       this.tail = node;
       this.size++;
+      return;
+    } else {
+      let node = new ListNode();
+      node.next = null;
+      node.prev = this.tail;
+      node.value = value;
+      this.tail = node;
+      this.tail.next = node;
+      this.size++;
     }
+    console.log("list:", ListNode);
   }
 }
+
+const dll = new DoublyLinkedList();
+const n1 = new ListNode();
+const n2 = new ListNode();
+console.log("append", dll.append(n1));
+console.log("prepend", dll.prepend(n2));
+console.log("length:", dll.getLength());
+
+console.log("list", dll);
+// DoublyLinkedList {
+//   head: ListNode {
+//     next: null,
+//     prev: null,
+//     value: ListNode { next: null, prev: null }
+//   },
+//   tail: ListNode {
+//     next: null,
+//     prev: null,
+//     value: ListNode { next: null, prev: null }
+//   },
+//   size: 1
+// }
