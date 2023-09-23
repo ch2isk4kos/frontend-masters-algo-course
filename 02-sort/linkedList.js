@@ -37,60 +37,76 @@ var DoublyLinkedList = /** @class */ (function () {
     };
     DoublyLinkedList.prototype.prepend = function (value) {
         var node = new ListNode(value);
+        if (this.head === null) {
+            this.head = node;
+            this.tail = node;
+        }
+        else {
+            this.head = node;
+            node.prev = node;
+            node.next = this.head.next;
+            // this.head.prev = null;
+            this.head.next = node.next;
+            // this.head = node;
+            // this.head.next = this.tail;
+        }
+        if (node)
+            this.size++;
+    };
+    // add to end of list
+    DoublyLinkedList.prototype.append = function (value) {
+        var node = new ListNode(value);
         if (this.tail === null) {
             this.head = node;
             this.tail = node;
         }
         else {
-            node.prev = this.head;
-            this.head = node;
-            this.head.next = node;
+            node.next = null;
+            node.prev = this.tail;
+            this.tail = node;
+            this.tail.next = null;
         }
         if (node)
             this.size++;
-    };
-    DoublyLinkedList.prototype.append = function (value) {
-        if (this.isEmpty()) {
-            var node = new ListNode(value);
-            node.value = value;
-            this.head = node;
-            this.tail = node;
-            this.size++;
-            return;
-        }
-        else {
-            var node = new ListNode(value);
-            node.next = null;
-            node.prev = this.tail;
-            node.value = value;
-            this.tail = node;
-            this.tail.next = node;
-            this.size++;
-        }
-        console.log("list:", ListNode);
+        // if (this.isEmpty()) {
+        //   let node = new ListNode(value);
+        //   node.value = value;
+        //   this.head = node;
+        //   this.tail = node;
+        //   this.size++;
+        //   return;
+        // } else {
+        //   let node = new ListNode(value);
+        //   node.next = null;
+        //   node.prev = this.tail;
+        //   node.value = value;
+        //   this.tail = node;
+        //   this.tail.next = node;
+        //   this.size++;
+        // }
     };
     return DoublyLinkedList;
 }());
 exports.DoublyLinkedList = DoublyLinkedList;
-var dll = new DoublyLinkedList();
+var list = new DoublyLinkedList();
 var val1 = "Hello";
 var val2 = "World";
-var n1 = new ListNode(val1);
-var n2 = new ListNode(val2);
-console.log("prepend", dll.prepend(n1));
-console.log("append", dll.append(n2));
-console.log("length:", dll.getLength());
-console.log("list", dll);
+var node1 = new ListNode(val1);
+var node2 = new ListNode(val2);
+list.prepend(node1);
+list.append(node2);
+console.log("length:", list.getLength());
+console.log("list", list);
 // DoublyLinkedList {
-//   head: <ref *1> ListNode {
-//     next: [Circular *1],
-//     prev: ListNode { next: null, prev: null, value: [ListNode] },
-//     value: ListNode { next: null, prev: null, value: 'World' }
-//   },
-//   tail: ListNode {
+//   head: ListNode {
 //     next: null,
 //     prev: null,
 //     value: ListNode { next: null, prev: null, value: 'Hello' }
+//   },
+//   tail: <ref *1> ListNode {
+//     next: [Circular *1],
+//     prev: ListNode { next: null, prev: null, value: [ListNode] },
+//     value: ListNode { next: null, prev: null, value: 'World' }
 //   },
 //   size: 2
 // }
