@@ -36,16 +36,16 @@ export class DoublyLinkedList {
   }
 
   public prepend(value: any): void {
-    if (this.isEmpty()) {
-      let node = new ListNode();
-      node.value = value;
-      this.size++;
-
-      if (this.tail === null) {
+    const node = new ListNode()
+    if (this.tail === null) {
         this.head = node;
         this.tail = node;
+      } else {
+        node.prev = this.head;
+        this.head = node;
+        this.head.next = node;
       }
-    }
+    if (node) this.size++;
   }
 
   public append(value: any): void {
