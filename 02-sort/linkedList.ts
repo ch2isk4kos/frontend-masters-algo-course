@@ -11,9 +11,13 @@
 // }
 
 export class ListNode<T> {
-  public value: T;
   public next: ListNode<T> | null = null;
   public prev: ListNode<T> | null = null;
+  public value: T;
+
+  constructor(value: T) {
+    this.value = value;
+  }
 }
 
 export class DoublyLinkedList {
@@ -36,7 +40,7 @@ export class DoublyLinkedList {
   }
 
   public prepend(value: any): void {
-    const node = new ListNode()
+    const node = new ListNode(value)
     if (this.tail === null) {
         this.head = node;
         this.tail = node;
@@ -50,14 +54,14 @@ export class DoublyLinkedList {
 
   public append(value: any): void {
     if (this.isEmpty()) {
-      let node = new ListNode();
+      let node = new ListNode(value);
       node.value = value;
       this.head = node;
       this.tail = node;
       this.size++;
       return;
     } else {
-      let node = new ListNode();
+      let node = new ListNode(value);
       node.next = null;
       node.prev = this.tail;
       node.value = value;
@@ -70,10 +74,12 @@ export class DoublyLinkedList {
 }
 
 const dll = new DoublyLinkedList();
-const n1 = new ListNode();
-const n2 = new ListNode();
-console.log("append", dll.append(n1));
-console.log("prepend", dll.prepend(n2));
+const val1 = "Hello";
+const val2 = "World";
+const n1 = new ListNode(val1);
+const n2 = new ListNode(val2);
+console.log("prepend", dll.prepend(n1));
+console.log("append", dll.append(n2));
 console.log("length:", dll.getLength());
 
 console.log("list", dll);
@@ -81,12 +87,12 @@ console.log("list", dll);
 //   head: ListNode {
 //     next: null,
 //     prev: null,
-//     value: ListNode { next: null, prev: null }
+//     value: ListNode { next: null, prev: null, value: 'Hello' }
 //   },
-//   tail: ListNode {
-//     next: null,
-//     prev: null,
-//     value: ListNode { next: null, prev: null }
+//   tail: <ref *1> ListNode {
+//     next: [Circular *1],
+//     prev: ListNode { next: null, prev: null, value: [ListNode] },
+//     value: ListNode { next: null, prev: null, value: 'World' }
 //   },
-//   size: 1
+//   size: 2
 // }

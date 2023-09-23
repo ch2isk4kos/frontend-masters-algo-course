@@ -13,9 +13,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DoublyLinkedList = exports.ListNode = void 0;
 var ListNode = /** @class */ (function () {
-    function ListNode() {
+    function ListNode(value) {
         this.next = null;
         this.prev = null;
+        this.value = value;
     }
     return ListNode;
 }());
@@ -35,7 +36,7 @@ var DoublyLinkedList = /** @class */ (function () {
         return this.size <= 0;
     };
     DoublyLinkedList.prototype.prepend = function (value) {
-        var node = new ListNode();
+        var node = new ListNode(value);
         if (this.tail === null) {
             this.head = node;
             this.tail = node;
@@ -50,7 +51,7 @@ var DoublyLinkedList = /** @class */ (function () {
     };
     DoublyLinkedList.prototype.append = function (value) {
         if (this.isEmpty()) {
-            var node = new ListNode();
+            var node = new ListNode(value);
             node.value = value;
             this.head = node;
             this.tail = node;
@@ -58,7 +59,7 @@ var DoublyLinkedList = /** @class */ (function () {
             return;
         }
         else {
-            var node = new ListNode();
+            var node = new ListNode(value);
             node.next = null;
             node.prev = this.tail;
             node.value = value;
@@ -72,22 +73,24 @@ var DoublyLinkedList = /** @class */ (function () {
 }());
 exports.DoublyLinkedList = DoublyLinkedList;
 var dll = new DoublyLinkedList();
-var n1 = new ListNode();
-var n2 = new ListNode();
-console.log("append", dll.append(n1));
-console.log("prepend", dll.prepend(n2));
+var val1 = "Hello";
+var val2 = "World";
+var n1 = new ListNode(val1);
+var n2 = new ListNode(val2);
+console.log("prepend", dll.prepend(n1));
+console.log("append", dll.append(n2));
 console.log("length:", dll.getLength());
 console.log("list", dll);
 // DoublyLinkedList {
-//   head: ListNode {
-//     next: null,
-//     prev: null,
-//     value: ListNode { next: null, prev: null }
+//   head: <ref *1> ListNode {
+//     next: [Circular *1],
+//     prev: ListNode { next: null, prev: null, value: [ListNode] },
+//     value: ListNode { next: null, prev: null, value: 'World' }
 //   },
 //   tail: ListNode {
 //     next: null,
 //     prev: null,
-//     value: ListNode { next: null, prev: null }
+//     value: ListNode { next: null, prev: null, value: 'Hello' }
 //   },
-//   size: 1
+//   size: 2
 // }
