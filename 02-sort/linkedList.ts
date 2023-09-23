@@ -35,11 +35,7 @@ export class DoublyLinkedList {
     return this.size;
   }
 
-  public isEmpty(): boolean {
-    return this.size <= 0;
-  }
-
-  // add to head of list
+  // INSERT AT HEAD OF LIST
   public prepend(value: any): ListNode<any> {
     const node = new ListNode(value); // create node
     
@@ -57,7 +53,7 @@ export class DoublyLinkedList {
     return node;
   }
 
-  // add to tail of list
+  // INSERT AT TAIL OF LIST
   public append(value: any): ListNode<any> {
     const node = new ListNode(value); // create node
    
