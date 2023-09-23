@@ -35,55 +35,35 @@ var DoublyLinkedList = /** @class */ (function () {
     DoublyLinkedList.prototype.isEmpty = function () {
         return this.size <= 0;
     };
+    // add to head of list
     DoublyLinkedList.prototype.prepend = function (value) {
-        var node = new ListNode(value);
-        if (this.head === null) {
+        var node = new ListNode(value); // create node
+        // attach node if no head exists
+        if (!this.head) {
             this.head = node;
             this.tail = node;
         }
-        else {
-            this.head = node;
-            node.prev = node;
-            node.next = this.head.next;
-            // this.head.prev = null;
-            this.head.next = node.next;
-            // this.head = node;
-            // this.head.next = this.tail;
-        }
+        node.next = this.head; // setup node attachment
+        this.head = node; // attach node
         if (node)
-            this.size++;
+            this.size++; // increase size of list if node exists
+        console.log("prepended node value:", node.value);
+        return node;
     };
-    // add to end of list
+    // add to tail of list
     DoublyLinkedList.prototype.append = function (value) {
-        var node = new ListNode(value);
-        if (this.tail === null) {
+        var node = new ListNode(value); // create node
+        // attach node if no head exists
+        if (!this.tail) {
             this.head = node;
             this.tail = node;
         }
-        else {
-            node.next = null;
-            node.prev = this.tail;
-            this.tail = node;
-            this.tail.next = null;
-        }
+        node.prev = this.tail; // setup node attachment
+        this.tail = node; // attach node
         if (node)
-            this.size++;
-        // if (this.isEmpty()) {
-        //   let node = new ListNode(value);
-        //   node.value = value;
-        //   this.head = node;
-        //   this.tail = node;
-        //   this.size++;
-        //   return;
-        // } else {
-        //   let node = new ListNode(value);
-        //   node.next = null;
-        //   node.prev = this.tail;
-        //   node.value = value;
-        //   this.tail = node;
-        //   this.tail.next = node;
-        //   this.size++;
-        // }
+            this.size++; // increase size of list if node exists
+        console.log("appended node value:", node.value);
+        return node;
     };
     return DoublyLinkedList;
 }());
@@ -91,22 +71,29 @@ exports.DoublyLinkedList = DoublyLinkedList;
 var list = new DoublyLinkedList();
 var val1 = "Hello";
 var val2 = "World";
+var val3 = "!!!!!";
 var node1 = new ListNode(val1);
 var node2 = new ListNode(val2);
+var node3 = new ListNode(val3);
 list.prepend(node1);
 list.append(node2);
+list.append(node3);
 console.log("length:", list.getLength());
 console.log("list", list);
-// DoublyLinkedList {
-//   head: ListNode {
-//     next: null,
+// prepended node value: ListNode { next: null, prev: null, value: 'Hello' }
+// appended node value: ListNode { next: null, prev: null, value: 'World' }
+// appended node value: ListNode { next: null, prev: null, value: '!!!!!' }
+// length: 3
+// list DoublyLinkedList {
+//   head: <ref *1> ListNode {
+//     next: [Circular *1],
 //     prev: null,
 //     value: ListNode { next: null, prev: null, value: 'Hello' }
 //   },
-//   tail: <ref *1> ListNode {
-//     next: [Circular *1],
-//     prev: ListNode { next: null, prev: null, value: [ListNode] },
-//     value: ListNode { next: null, prev: null, value: 'World' }
+//   tail: ListNode {
+//     next: null,
+//     prev: ListNode { next: null, prev: [ListNode], value: [ListNode] },
+//     value: ListNode { next: null, prev: null, value: '!!!!!' }
 //   },
-//   size: 2
+//   size: 3
 // }
