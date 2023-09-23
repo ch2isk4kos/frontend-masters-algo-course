@@ -10,14 +10,20 @@
 //     removeAt(idx: number): T | undefined {}
 // }
 
-class ListNode<T> {
+export class ListNode<T> {
   public value: any;
-  public next: ListNode<T>;
-  public prev: ListNode<T>;
+  public next: ListNode<T> | null = null;
+  public prev: ListNode<T> | null = null;
 }
 
 export class DoublyLinkedList {
-  constructor( value: any = null) {
-    // 
+  private head: ListNode<any> | null = null;
+  private tail: ListNode<any> | null = null;
+  private size: number;
+
+  constructor() {
+    this.head = null;
+    this.tail = null;
+    this.size = 0;
   }
 }
