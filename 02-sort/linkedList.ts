@@ -74,9 +74,9 @@ export class DoublyLinkedList {
 
 const list = new DoublyLinkedList();
 
-const val1 = "Hello";
+const val1 = "Hello, ";
 const val2 = "World";
-const val3 = "!!!!!";
+const val3 = "!";
 
 const node1 = new ListNode(val1);
 const node2 = new ListNode(val2);
@@ -88,7 +88,7 @@ list.append(node3);
 
 console.log("length:", list.getLength());
 console.log("list", list);
-// prepended node value: ListNode { next: null, prev: null, value: 'Hello' }
+// prepended node value: ListNode { next: null, prev: null, value: 'Hello, ' }
 // appended node value: ListNode { next: null, prev: null, value: 'World' }
 // appended node value: ListNode { next: null, prev: null, value: '!!!!!' }
 // length: 3
