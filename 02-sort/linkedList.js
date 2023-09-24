@@ -32,10 +32,7 @@ var DoublyLinkedList = /** @class */ (function () {
     DoublyLinkedList.prototype.getLength = function () {
         return this.size;
     };
-    DoublyLinkedList.prototype.isEmpty = function () {
-        return this.size <= 0;
-    };
-    // add to head of list
+    // INSERT AT HEAD OF LIST
     DoublyLinkedList.prototype.prepend = function (value) {
         var node = new ListNode(value); // create node
         // attach node if no head exists
@@ -50,7 +47,7 @@ var DoublyLinkedList = /** @class */ (function () {
         console.log("prepended node value:", node.value);
         return node;
     };
-    // add to tail of list
+    // INSERT AT TAIL OF LIST
     DoublyLinkedList.prototype.append = function (value) {
         var node = new ListNode(value); // create node
         // attach node if no head exists
@@ -65,22 +62,47 @@ var DoublyLinkedList = /** @class */ (function () {
         console.log("appended node value:", node.value);
         return node;
     };
+    // INSERT AT ITH POSITION
+    DoublyLinkedList.prototype.insertAt = function (value, idx) {
+        var node = new ListNode(value); // create node
+        if (!this.head) {
+            this.head = node;
+            this.tail = node;
+        }
+        ;
+        var current = this.head;
+        var count = 1;
+        while (count < idx && current.next) {
+            current = current.next;
+            count++;
+        }
+        node.prev = current.prev;
+        node.next = current.next;
+        current.next = node;
+        if (node)
+            this.size++;
+        console.log("inserted node value:", node.value, "index:", count);
+        return node;
+    };
     return DoublyLinkedList;
 }());
 exports.DoublyLinkedList = DoublyLinkedList;
 var list = new DoublyLinkedList();
-var val1 = "Hello";
+var val1 = "Hello,";
 var val2 = "World";
-var val3 = "!!!!!";
+var val3 = "!";
+var val4 = "Whole";
 var node1 = new ListNode(val1);
 var node2 = new ListNode(val2);
 var node3 = new ListNode(val3);
+var node4 = new ListNode(val4);
 list.prepend(node1);
 list.append(node2);
 list.append(node3);
+list.insertAt(node4, 2);
 console.log("length:", list.getLength());
 console.log("list", list);
-// prepended node value: ListNode { next: null, prev: null, value: 'Hello' }
+// prepended node value: ListNode { next: null, prev: null, value: 'Hello, ' }
 // appended node value: ListNode { next: null, prev: null, value: 'World' }
 // appended node value: ListNode { next: null, prev: null, value: '!!!!!' }
 // length: 3
