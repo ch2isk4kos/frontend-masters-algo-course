@@ -70,21 +70,49 @@ export class DoublyLinkedList {
     console.log("appended node value:", node.value);
     return node;
   }
+
+  // INSERT AT ITH POSITION
+  public insertAt(value: any, idx: number): ListNode<any> {
+    const node = new ListNode(value); // create node
+   
+    if (!this.head) {
+      this.head = node;
+      this.tail = node;
+    };
+
+    let current = this.head;
+    let count = 1;
+    while (count < idx && current.next) {
+      current = current.next;
+      count++;
+    }
+
+    node.prev = current.prev;
+    node.next = current.next;
+    current.next = node;
+    if (node) this.size++;
+
+    console.log("inserted node value:", node.value, "index:", count);
+    return node;
+  }
 }
 
 const list = new DoublyLinkedList();
 
-const val1 = "Hello, ";
+const val1 = "Hello,";
 const val2 = "World";
 const val3 = "!";
+const val4 = "Whole"
 
 const node1 = new ListNode(val1);
 const node2 = new ListNode(val2);
 const node3 = new ListNode(val3);
+const node4 = new ListNode(val4);
 
 list.prepend(node1);
 list.append(node2);
 list.append(node3);
+list.insertAt(node4, 2);
 
 console.log("length:", list.getLength());
 console.log("list", list);
