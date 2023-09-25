@@ -63,6 +63,7 @@ export class DoublyLinkedList {
     }
 
     node.prev = this.tail;
+    // this.tail.next = node;
     this.tail = node;
     if (node) this.size++;
     
@@ -86,7 +87,8 @@ export class DoublyLinkedList {
       i++;
     }
 
-    node.prev = current.prev;
+    // node.prev = current.prev;
+    node.prev = current;
     node.next = current.next;
     current.next = node;
     if (node) this.size++;
@@ -122,7 +124,11 @@ console.log("list", list);
 // length: 4
 // list DoublyLinkedList {
 //   head: <ref *1> ListNode {
-//     next: ListNode { next: [Circular *1], prev: null, value: [ListNode] },
+//     next: ListNode {
+//       next: [Circular *1],
+//       prev: [Circular *1],
+//       value: [ListNode]
+//     },
 //     prev: null,
 //     value: ListNode { next: null, prev: null, value: 'Hello,' }
 //   },

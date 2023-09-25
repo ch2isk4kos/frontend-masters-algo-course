@@ -71,17 +71,18 @@ var DoublyLinkedList = /** @class */ (function () {
         }
         ;
         var current = this.head;
-        var count = 1;
-        while (count < idx && current.next) {
+        var i = 1;
+        while (i < idx && current.next) {
             current = current.next;
-            count++;
+            i++;
         }
-        node.prev = current.prev;
+        // node.prev = current.prev;
+        node.prev = current;
         node.next = current.next;
         current.next = node;
         if (node)
             this.size++;
-        console.log("inserted node value:", node.value, "index:", count);
+        console.log("inserted node value:", node.value, "index:", i);
         return node;
     };
     return DoublyLinkedList;
