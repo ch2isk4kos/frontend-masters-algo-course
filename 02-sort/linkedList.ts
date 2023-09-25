@@ -80,10 +80,10 @@ export class DoublyLinkedList {
     };
 
     let current = this.head;
-    let count = 1;
-    while (count < idx && current.next) {
+    let i = 1;
+    while (i < idx && current.next) {
       current = current.next;
-      count++;
+      i++;
     }
 
     node.prev = current.prev;
@@ -91,7 +91,7 @@ export class DoublyLinkedList {
     current.next = node;
     if (node) this.size++;
 
-    console.log("inserted node value:", node.value, "index:", count);
+    console.log("inserted node value:", node.value, "index:", i);
     return node;
   }
 }
