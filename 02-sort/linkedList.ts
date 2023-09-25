@@ -35,7 +35,7 @@ export class DoublyLinkedList {
     return this.size;
   }
 
-  // INSERT AT HEAD OF LIST
+  // ADD TO HEAD OF LIST
   public prepend(value: any): ListNode<any> {
     const node = new ListNode(value); // create node
     
@@ -53,19 +53,18 @@ export class DoublyLinkedList {
     return node;
   }
 
-  // INSERT AT TAIL OF LIST
+  // ADD TO TAIL OF LIST
   public append(value: any): ListNode<any> {
-    const node = new ListNode(value); // create node
+    const node = new ListNode(value);
    
-    // attach node if no head exists
     if (!this.tail) {
       this.head = node;
       this.tail = node;
     }
 
-    node.prev = this.tail; // setup node attachment
-    this.tail = node; // attach node
-    if (node) this.size++; // increase size of list if node exists
+    node.prev = this.tail;
+    this.tail = node;
+    if (node) this.size++;
     
     console.log("appended node value:", node.value);
     return node;
@@ -73,7 +72,7 @@ export class DoublyLinkedList {
 
   // INSERT AT ITH POSITION
   public insertAt(value: any, idx: number): ListNode<any> {
-    const node = new ListNode(value); // create node
+    const node = new ListNode(value);
    
     if (!this.head) {
       this.head = node;
@@ -116,20 +115,21 @@ list.insertAt(node4, 2);
 
 console.log("length:", list.getLength());
 console.log("list", list);
-// prepended node value: ListNode { next: null, prev: null, value: 'Hello, ' }
+// prepended node value: ListNode { next: null, prev: null, value: 'Hello,' }
 // appended node value: ListNode { next: null, prev: null, value: 'World' }
-// appended node value: ListNode { next: null, prev: null, value: '!!!!!' }
-// length: 3
+// appended node value: ListNode { next: null, prev: null, value: '!' }
+// inserted node value: ListNode { next: null, prev: null, value: 'Whole' } index: 2
+// length: 4
 // list DoublyLinkedList {
 //   head: <ref *1> ListNode {
-//     next: [Circular *1],
+//     next: ListNode { next: [Circular *1], prev: null, value: [ListNode] },
 //     prev: null,
-//     value: ListNode { next: null, prev: null, value: 'Hello' }
+//     value: ListNode { next: null, prev: null, value: 'Hello,' }
 //   },
 //   tail: ListNode {
 //     next: null,
 //     prev: ListNode { next: null, prev: [ListNode], value: [ListNode] },
-//     value: ListNode { next: null, prev: null, value: '!!!!!' }
+//     value: ListNode { next: null, prev: null, value: '!' }
 //   },
-//   size: 3
+//   size: 4
 // }
