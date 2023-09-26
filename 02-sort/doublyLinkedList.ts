@@ -32,4 +32,8 @@ export class DoublyLinkedList<T> {
   private head?: ListNode<T> | null = null;
   private tail?: ListNode<T> | null = null;
   private length: number = 0;
+
+  public isEmpty(): boolean {
+    return !this.head;
+  }
 }
