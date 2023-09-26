@@ -63,8 +63,9 @@ export class DoublyLinkedList {
     }
 
     node.prev = this.tail;
-    // this.tail.next = node;
+    this.tail.next = node;
     this.tail = node;
+
     if (node) this.size++;
     
     console.log("appended node value:", node.value);
@@ -72,31 +73,73 @@ export class DoublyLinkedList {
   }
 
   // INSERT AT ITH POSITION
-  public insertAt(value: any, idx: number): ListNode<any> {
+  public insertAt(value: any, idx: number): boolean | ListNode<any> {
     const node = new ListNode(value);
-   
+
+    let current = this.head;
+    let previous;
+    let i = 0;
+
+    if (idx <= 0 && idx >= this.size) return false // return false if arguments are out of bounds
+
     if (!this.head) {
       this.head = node;
       this.tail = node;
-    };
-
-    let current = this.head;
-    let i = 1;
-    while (i < idx && current.next) {
-      current = current.next;
-      i++;
     }
 
-    // node.prev = current.prev;
-    node.prev = current;
-    node.next = current.next;
-    current.next = node;
-    if (node) this.size++;
+    if (idx === 0 && current) {
+      node.next = current;
+      current.prev = node;
+      this.head = node;
+    }
+    
+    if (idx === this.size && current) {
+      node.prev = current;
+      current.next = node;
+      current = this.tail;
+      this.tail = node;
+    } 
 
-    console.log("inserted node value:", node.value, "index:", i);
+    while (i++ < idx && current) {
+      previous = current;
+      current = current.next;
+    }
+    
+    previous.next = node;
+    node.next = current;
+
+    // new
+    // current.prev = node;
+    node.prev = previous;
+    if (node) this.size++;
     return node;
   }
+
+  // FIND NODE
+  // public at(idx: number): any {
+  //   let current = this.head;
+
+  //   while (idx > 0 && current) {
+  //     // if (current === null) throw new Error(`Cannot get node at ${idx} position: index out of bounds`);
+  //     console.log(current.value);
+  //     current = current.next;
+  //     idx--;
+  //   }
+  // }
+
+  // public getAt(idx: number): any {
+  //   return this.at(idx).value;
+  // }
+
+  public print(): any {
+    let current = this.head;
+    while (current) {
+      console.log("current:", current.value);
+      current = current.next;
+    }
+  }
 }
+
 
 const list = new DoublyLinkedList();
 
@@ -113,14 +156,32 @@ const node4 = new ListNode(val4);
 list.prepend(node1);
 list.append(node2);
 list.append(node3);
-list.insertAt(node4, 2);
-
+list.insertAt(node4, 1);
+// console.log("at 1:", list.at(1));
+// console.log("at 2:", list.at(2));
+// console.log("at 3:", list.at(3));
+// console.log("at 4:", list.at(4));
+// console.log("get 1:", list.getAt(1));
+// console.log("get 2:", list.getAt(2));
+// console.log("get 3:", list.getAt(3));
+// console.log("get 4:", list.getAt(4));
+console.log(list.print());
+list.print();
 console.log("length:", list.getLength());
 console.log("list", list);
 // prepended node value: ListNode { next: null, prev: null, value: 'Hello,' }
 // appended node value: ListNode { next: null, prev: null, value: 'World' }
 // appended node value: ListNode { next: null, prev: null, value: '!' }
 // inserted node value: ListNode { next: null, prev: null, value: 'Whole' } index: 2
+// get: <ref *1> ListNode {
+//   next: ListNode {
+//     next: [Circular *1],
+//     prev: [Circular *1],
+//     value: ListNode { next: null, prev: null, value: 'Whole' }
+//   },
+//   prev: null,
+//   value: ListNode { next: null, prev: null, value: 'Hello,' }
+// }
 // length: 4
 // list DoublyLinkedList {
 //   head: <ref *1> ListNode {
