@@ -20,9 +20,9 @@ export class ListNode<T> {
   }
 }
 
-export class DoublyLinkedList {
-  private head: ListNode<any> | null = null;
-  private tail: ListNode<any> | null = null;
+export class DoublyLinkedList<T> {
+  private head: ListNode<T> | null = null;
+  private tail: ListNode<T> | null = null;
   private size: number;
 
   constructor() {
@@ -115,31 +115,44 @@ export class DoublyLinkedList {
     return node;
   }
 
-  // FIND NODE
+  // SEARCH INDEX OF NODE
+  public getIndexOf(node: ListNode<any>): number {
+    let current = this.head;
+    let i = -1;
+
+    // O(n)
+    while (current) {
+      if (node === current.value) return ++i;
+      i++;
+      current = current.next;
+    }
+
+    return -1;
+  }
+
   // public at(idx: number): any {
   //   let current = this.head;
 
   //   while (idx > 0 && current) {
-  //     // if (current === null) throw new Error(`Cannot get node at ${idx} position: index out of bounds`);
+  //     if (current === null) throw new Error(`Cannot get node at ${idx} position: index out of bounds`);
   //     console.log(current.value);
   //     current = current.next;
   //     idx--;
   //   }
   // }
 
-  // public getAt(idx: number): any {
-  //   return this.at(idx).value;
-  // }
+  public isPresent(node: ListNode<any>): boolean {
+    return this.getIndexOf(node) !== -1;
+  }
 
   public print(): any {
     let current = this.head;
     while (current) {
-      console.log("current:", current.value);
+      console.log("print current:", current.value);
       current = current.next;
     }
   }
 }
-
 
 const list = new DoublyLinkedList();
 
@@ -154,9 +167,12 @@ const node3 = new ListNode(val3);
 const node4 = new ListNode(val4);
 
 list.prepend(node1);
+
 list.append(node2);
 list.append(node3);
+
 list.insertAt(node4, 1);
+
 // console.log("at 1:", list.at(1));
 // console.log("at 2:", list.at(2));
 // console.log("at 3:", list.at(3));
@@ -165,37 +181,49 @@ list.insertAt(node4, 1);
 // console.log("get 2:", list.getAt(2));
 // console.log("get 3:", list.getAt(3));
 // console.log("get 4:", list.getAt(4));
-console.log(list.print());
+
+console.log("getIndexOf 1:", list.getIndexOf(node1));
+console.log("getIndexOf 2:", list.getIndexOf(node2));
+console.log("getIndexOf 3:", list.getIndexOf(node3));
+console.log("getIndexOf 4:", list.getIndexOf(node4));
+
+console.log("isPresent 4:", list.isPresent(node4));
+
 list.print();
+
 console.log("length:", list.getLength());
+
 console.log("list", list);
 // prepended node value: ListNode { next: null, prev: null, value: 'Hello,' }
 // appended node value: ListNode { next: null, prev: null, value: 'World' }
 // appended node value: ListNode { next: null, prev: null, value: '!' }
-// inserted node value: ListNode { next: null, prev: null, value: 'Whole' } index: 2
-// get: <ref *1> ListNode {
-//   next: ListNode {
-//     next: [Circular *1],
-//     prev: [Circular *1],
-//     value: ListNode { next: null, prev: null, value: 'Whole' }
-//   },
-//   prev: null,
-//   value: ListNode { next: null, prev: null, value: 'Hello,' }
-// }
+// getIndexOf 1: 0
+// getIndexOf 2: 2
+// getIndexOf 3: 3
+// getIndexOf 4: 1
+// isPresent 4: true
+// print current: ListNode { next: null, prev: null, value: 'Hello,' }
+// print current: ListNode { next: null, prev: null, value: 'Whole' }
+// print current: ListNode { next: null, prev: null, value: 'World' }
+// print current: ListNode { next: null, prev: null, value: '!' }
 // length: 4
 // list DoublyLinkedList {
 //   head: <ref *1> ListNode {
 //     next: ListNode {
-//       next: [Circular *1],
+//       next: [ListNode],
 //       prev: [Circular *1],
 //       value: [ListNode]
 //     },
 //     prev: null,
 //     value: ListNode { next: null, prev: null, value: 'Hello,' }
 //   },
-//   tail: ListNode {
+//   tail: <ref *2> ListNode {
 //     next: null,
-//     prev: ListNode { next: null, prev: [ListNode], value: [ListNode] },
+//     prev: ListNode {
+//       next: [Circular *2],
+//       prev: [ListNode],
+//       value: [ListNode]
+//     },
 //     value: ListNode { next: null, prev: null, value: '!' }
 //   },
 //   size: 4

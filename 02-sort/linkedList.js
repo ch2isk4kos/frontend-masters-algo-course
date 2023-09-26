@@ -98,23 +98,35 @@ var DoublyLinkedList = /** @class */ (function () {
             this.size++;
         return node;
     };
-    // FIND NODE
+    // SEARCH INDEX OF NODE
+    DoublyLinkedList.prototype.getIndexOf = function (node) {
+        var current = this.head;
+        var i = -1;
+        // O(n)
+        while (current) {
+            if (node === current.value)
+                return ++i;
+            i++;
+            current = current.next;
+        }
+        return -1;
+    };
     // public at(idx: number): any {
     //   let current = this.head;
     //   while (idx > 0 && current) {
-    //     // if (current === null) throw new Error(`Cannot get node at ${idx} position: index out of bounds`);
+    //     if (current === null) throw new Error(`Cannot get node at ${idx} position: index out of bounds`);
     //     console.log(current.value);
     //     current = current.next;
     //     idx--;
     //   }
     // }
-    // public getAt(idx: number): any {
-    //   return this.at(idx).value;
-    // }
+    DoublyLinkedList.prototype.isPresent = function (node) {
+        return this.getIndexOf(node) !== -1;
+    };
     DoublyLinkedList.prototype.print = function () {
         var current = this.head;
         while (current) {
-            console.log("current:", current.value);
+            console.log("print current:", current.value);
             current = current.next;
         }
     };
@@ -142,37 +154,39 @@ list.insertAt(node4, 1);
 // console.log("get 2:", list.getAt(2));
 // console.log("get 3:", list.getAt(3));
 // console.log("get 4:", list.getAt(4));
-console.log(list.print());
+console.log("getIndexOf 1:", list.getIndexOf(node1));
+console.log("getIndexOf 2:", list.getIndexOf(node2));
+console.log("getIndexOf 3:", list.getIndexOf(node3));
+console.log("getIndexOf 4:", list.getIndexOf(node4));
+console.log("isPresent 4:", list.isPresent(node4));
 list.print();
 console.log("length:", list.getLength());
 console.log("list", list);
 // prepended node value: ListNode { next: null, prev: null, value: 'Hello,' }
 // appended node value: ListNode { next: null, prev: null, value: 'World' }
 // appended node value: ListNode { next: null, prev: null, value: '!' }
-// inserted node value: ListNode { next: null, prev: null, value: 'Whole' } index: 2
-// get: <ref *1> ListNode {
-//   next: ListNode {
-//     next: [Circular *1],
-//     prev: [Circular *1],
-//     value: ListNode { next: null, prev: null, value: 'Whole' }
-//   },
-//   prev: null,
-//   value: ListNode { next: null, prev: null, value: 'Hello,' }
-// }
+// print current: ListNode { next: null, prev: null, value: 'Hello,' }
+// print current: ListNode { next: null, prev: null, value: 'Whole' }
+// print current: ListNode { next: null, prev: null, value: 'World' }
+// print current: ListNode { next: null, prev: null, value: '!' }
 // length: 4
 // list DoublyLinkedList {
 //   head: <ref *1> ListNode {
 //     next: ListNode {
-//       next: [Circular *1],
+//       next: [ListNode],
 //       prev: [Circular *1],
 //       value: [ListNode]
 //     },
 //     prev: null,
 //     value: ListNode { next: null, prev: null, value: 'Hello,' }
 //   },
-//   tail: ListNode {
+//   tail: <ref *2> ListNode {
 //     next: null,
-//     prev: ListNode { next: null, prev: [ListNode], value: [ListNode] },
+//     prev: ListNode {
+//       next: [Circular *2],
+//       prev: [ListNode],
+//       value: [ListNode]
+//     },
 //     value: ListNode { next: null, prev: null, value: '!' }
 //   },
 //   size: 4
