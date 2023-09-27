@@ -167,6 +167,13 @@ export class DoublyLinkedList<T> {
     return remove.value;
   }
 
+  /**
+   * .removeTail()
+   * 
+   * Removes the node at the end of the list.
+   * @returns the value of the removed node
+   */
+
   public removeTail(): T {
     if (!this.head) throw new Error("Index out of bounds");
 
