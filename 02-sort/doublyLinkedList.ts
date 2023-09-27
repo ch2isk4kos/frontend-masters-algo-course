@@ -137,6 +137,14 @@ export class DoublyLinkedList<T> {
     this.length++;
   }
 
+  /**
+   * .removeAt()
+   * 
+   * Removes a node from a specified index
+   * @param index of the node to remove
+   * @returns value of the removed node
+   */
+
   public removeAt(index: number): T | void {
     if (index < 0 || index > this.length) throw new Error("Index out of bounds"); // return null if input is out of bounds
     if (index === 0) return this.removeHead();
@@ -151,7 +159,7 @@ export class DoublyLinkedList<T> {
     node!.prev!.next = node!.next;
     node!.next!.prev = node!.prev;
     this.length--;
-    
+
     return node!.value;
   }
 
@@ -211,4 +219,6 @@ list.prepend(val1);
 list.append(val2);
 list.append(val3);
 list.insertAt(1, val4);
+console.log("list", list);
+list.removeAt(1);
 console.log("list", list);
