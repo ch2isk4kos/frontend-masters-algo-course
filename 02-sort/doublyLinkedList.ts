@@ -59,7 +59,7 @@ export class DoublyLinkedList<T> {
   }
 
   /**
-   * .push()
+   * .prepend()
    * 
    * Inserts a new node at the head of the list: O(1)
    * @param value of the node being inserted
@@ -76,26 +76,6 @@ export class DoublyLinkedList<T> {
     this.head.prev = node;
     node.next = this.head;
     this.head = node;
-    this.length++;
-  }
-
-  /**
-   * .append()
-   * 
-   * Inserts a node at the tail of the list: O(1)
-   * @param value of node being inserted
-   */
-
-  public append(value: T): void {
-    const node = new ListNode(value);
-
-    if (!this.head) this.head = node;
-    else {
-      this.tail!.next = node;
-      node.prev = this.tail;
-    }
-
-    this.tail = node;
     this.length++;
   }
 
@@ -130,5 +110,5 @@ const val2 = "World";
 const val3 = "!";
 const val4 = "Whole"
 
-// list.push(val1);
+// list.prepend(val1);
 // console.log("list", list);
