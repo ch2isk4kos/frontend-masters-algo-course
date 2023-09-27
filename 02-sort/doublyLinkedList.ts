@@ -110,6 +110,9 @@ export class DoublyLinkedList<T> {
 
   public insertAt(index: number, value: T): void {
     if (index < 0 || index > this.length) throw new Error("Index out of bounds"); // return null if input is out of bounds
+    if (index === 0) return this.prepend(value);
+    if (index === this.length) return this.append(value);
+    
   }
 
     /**
