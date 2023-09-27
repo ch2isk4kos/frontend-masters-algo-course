@@ -99,6 +99,19 @@ export class DoublyLinkedList<T> {
     this.length++;
   }
 
+  /**
+   * .insertAt()
+   * 
+   * Inserts a node at the specified index
+   * @param index position where the node will be inserted
+   * @param value of the node inserted
+   * @throws out of bounds error if input index is out of bounds
+   */
+
+  public insertAt(index: number, value: T): void {
+    if (index < 0 || index > this.length) throw new Error("Index out of bounds"); // return null if input is out of bounds
+  }
+
     /**
    * .pop()
    * 
