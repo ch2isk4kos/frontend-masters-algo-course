@@ -137,6 +137,14 @@ export class DoublyLinkedList<T> {
     this.length++;
   }
 
+  public removeAt(index: number): T | void {
+    if (index < 0 || index > this.length) throw new Error("Index out of bounds"); // return null if input is out of bounds
+    if (index === 0) return this.removeHead();
+    if (index === this.length) ;
+    
+    return node!.value;
+  }
+
     /**
    * .pop()
    * 
