@@ -79,6 +79,26 @@ export class DoublyLinkedList<T> {
     this.length++;
   }
 
+  /**
+   * .append()
+   * 
+   * Inserts a node at the tail of the list: O(1)
+   * @param value of node being inserted
+   */
+
+  public append(value: T): void {
+    const node = new ListNode(value);
+
+    if (!this.head) this.head = node;
+    else {
+      this.tail!.next = node;
+      node.prev = this.tail;
+    }
+
+    this.tail = node;
+    this.length++;
+  }
+
     /**
    * .pop()
    * 
