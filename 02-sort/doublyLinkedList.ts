@@ -37,6 +37,14 @@ export class DoublyLinkedList<T> {
     return !this.head;
   }
 
+  /**
+   * .getValueOf()
+   * 
+   * Finds the value of a node at a specified index: O(n)
+   * @param index of the node
+   * @returns the value of a node at a specified index
+   */
+
   public getValueOf(index: number): T | null {
     if (index < 0 || index >= this.length) return null; // return null if input is out of bounds
 
@@ -50,7 +58,14 @@ export class DoublyLinkedList<T> {
     return current?.value ?? null; // return value of current node or else null
   }
 
-  public push(value: T): void {
+  /**
+   * .push()
+   * 
+   * Inserts a new node at the head of the list: O(1)
+   * @param value of the node being inserted
+   */
+
+  public prepend(value: T): void {
     const node = new ListNode(value);
 
     if (!this.head) {
@@ -62,6 +77,48 @@ export class DoublyLinkedList<T> {
     node.next = this.head;
     this.head = node;
     this.length++;
+  }
+
+  /**
+   * .append()
+   * 
+   * Inserts a node at the tail of the list: O(1)
+   * @param value of node being inserted
+   */
+
+  public append(value: T): void {
+    const node = new ListNode(value);
+
+    if (!this.head) this.head = node;
+    else {
+      this.tail!.next = node;
+      node.prev = this.tail;
+    }
+
+    this.tail = node;
+    this.length++;
+  }
+
+    /**
+   * .pop()
+   * 
+   * Removes a node from the head of the list: O(1)
+   * @returns the value of the removed node
+   * @throws error if index is out of bounds
+   */
+
+  public pop(): T {
+    if (!this.head) throw new Error("Index out of bounds");
+
+    const remove = this.head;
+
+    if (this.head === this.tail) this.tail === undefined;
+    else this.head.next!.prev = undefined;
+
+    this.head = this.head.next;
+    this.length--;
+
+    return remove.value;
   }
 }
 
