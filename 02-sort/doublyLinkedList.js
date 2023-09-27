@@ -36,6 +36,12 @@ var DoublyLinkedList = /** @class */ (function () {
         this.tail = undefined;
         this.length = 0;
     }
+    /**
+     * .isEmpty()
+     *
+     * Checks if list is empty.
+     * @returns true or false
+     */
     DoublyLinkedList.prototype.isEmpty = function () {
         return !this.head;
     };
@@ -101,7 +107,7 @@ var DoublyLinkedList = /** @class */ (function () {
      * @throws out of bounds error if input index is out of bounds
      */
     DoublyLinkedList.prototype.insertAt = function (index, value) {
-        var _a;
+        // edge cases
         if (index < 0 || index > this.length)
             throw new Error("Index out of bounds"); // return null if input is out of bounds
         if (index === 0)
@@ -119,16 +125,38 @@ var DoublyLinkedList = /** @class */ (function () {
         node.next = next;
         next.prev = node;
         this.length++;
-        console.log("this.head.prev:", (_a = this.head) === null || _a === void 0 ? void 0 : _a.prev);
     };
     /**
-   * .pop()
+     * .removeAt()
+     *
+     * Removes a node from a specified index
+     * @param index of the node to remove
+     * @returns value of the removed node
+     */
+    DoublyLinkedList.prototype.removeAt = function (index) {
+        if (index < 0 || index > this.length)
+            throw new Error("Index out of bounds"); // return null if input is out of bounds
+        if (index === 0)
+            return this.removeHead();
+        if (index === this.length)
+            return this.removeTail();
+        var node = this.head;
+        for (var i = 0; i < index; i++) {
+            node = node === null || node === void 0 ? void 0 : node.next;
+        }
+        node.prev.next = node.next;
+        node.next.prev = node.prev;
+        this.length--;
+        return node.value;
+    };
+    /**
+   * .removeHead()
    *
    * Removes a node from the head of the list: O(1)
    * @returns the value of the removed node
    * @throws error if index is out of bounds
    */
-    DoublyLinkedList.prototype.pop = function () {
+    DoublyLinkedList.prototype.removeHead = function () {
         if (!this.head)
             throw new Error("Index out of bounds");
         var remove = this.head;
@@ -139,6 +167,24 @@ var DoublyLinkedList = /** @class */ (function () {
         this.head = this.head.next;
         this.length--;
         return remove.value;
+    };
+    /**
+     * .removeTail()
+     *
+     * Removes the node at the end of the list.
+     * @returns the value of the removed node
+     */
+    DoublyLinkedList.prototype.removeTail = function () {
+        if (!this.head)
+            throw new Error("Index out of bounds");
+        var node = this.tail;
+        if (this.head === this.tail)
+            this.head = undefined;
+        else
+            this.tail.prev.next = undefined;
+        this.tail = this.tail.prev;
+        this.length--;
+        return node.value;
     };
     return DoublyLinkedList;
 }());
@@ -153,4 +199,6 @@ list.prepend(val1);
 list.append(val2);
 list.append(val3);
 list.insertAt(1, val4);
+console.log("list", list);
+list.removeAt(1);
 console.log("list", list);
