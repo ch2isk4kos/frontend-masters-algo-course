@@ -146,7 +146,7 @@ export class DoublyLinkedList<T> {
   }
 
     /**
-   * .pop()
+   * .removeHead()
    * 
    * Removes a node from the head of the list: O(1)
    * @returns the value of the removed node
