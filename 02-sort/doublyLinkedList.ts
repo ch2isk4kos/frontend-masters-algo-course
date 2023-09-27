@@ -73,7 +73,8 @@ export class DoublyLinkedList<T> {
       this.tail = node;
     }
 
-    this.head.prev = node;
+    // this.head.prev = node;
+    this.head.prev = undefined;
     node.next = this.head;
     this.head = node;
     this.length++;
@@ -109,10 +110,26 @@ export class DoublyLinkedList<T> {
    */
 
   public insertAt(index: number, value: T): void {
+    // edge cases
     if (index < 0 || index > this.length) throw new Error("Index out of bounds"); // return null if input is out of bounds
     if (index === 0) return this.prepend(value);
     if (index === this.length) return this.append(value);
     
+    const node = new ListNode(value);
+    let previous: ListNode<T> | undefined = this.head;
+
+    for (let i: number = 0; i < index - 1; i++) {
+      previous = previous?.next;
+    }
+
+    const next = previous?.next;
+
+    previous!.next = node;
+    node.prev = previous;
+    node.next = next;
+    next!.prev = node;
+    this.length++;
+    console.log("this.head.prev:", this.head?.prev);
   }
 
     /**
@@ -146,5 +163,8 @@ const val2 = "World";
 const val3 = "!";
 const val4 = "Whole"
 
-// list.prepend(val1);
-// console.log("list", list);
+list.prepend(val1);
+list.append(val2);
+list.append(val3);
+list.insertAt(1, val4);
+console.log("list", list);
