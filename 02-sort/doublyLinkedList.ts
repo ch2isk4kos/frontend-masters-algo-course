@@ -11,8 +11,8 @@
 export class ListNode<T> {
   constructor(
     public value: T,
-    public prev: ListNode<T>,
-    public next: ListNode<T>,
+    public prev?: ListNode<T>,
+    public next?: ListNode<T>,
   ) {}
 }
 
@@ -48,5 +48,30 @@ export class DoublyLinkedList<T> {
     }
 
     return current?.value ?? null; // return value of current node or else null
-  } 
+  }
+
+  public push(value: T): void {
+    const node = new ListNode(value);
+
+    if (!this.head) {
+      this.head = node;
+      this.tail = node;
+    }
+
+    this.head.prev = node;
+    node.next = this.head;
+    this.head = node;
+    this.length++;
+  }
 }
+
+const list = new DoublyLinkedList();
+console.log("list", list); // list DoublyLinkedList { head: undefined, tail: undefined, length: 0 }
+
+const val1 = "Hello,";
+const val2 = "World";
+const val3 = "!";
+const val4 = "Whole"
+
+// list.push(val1);
+// console.log("list", list);
