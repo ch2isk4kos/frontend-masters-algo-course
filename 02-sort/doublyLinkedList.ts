@@ -33,6 +33,12 @@ export class DoublyLinkedList<T> {
   private tail?: ListNode<T> = undefined;
   private length: number = 0;
 
+  /**
+   * .isEmpty()
+   * 
+   * Checks if list is empty.
+   * @returns true or false
+   */
   public isEmpty(): boolean {
     return !this.head;
   }
