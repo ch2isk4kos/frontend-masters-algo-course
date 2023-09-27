@@ -140,7 +140,17 @@ export class DoublyLinkedList<T> {
   public removeAt(index: number): T | void {
     if (index < 0 || index > this.length) throw new Error("Index out of bounds"); // return null if input is out of bounds
     if (index === 0) return this.removeHead();
-    if (index === this.length) ;
+    if (index === this.length) return this.removeTail();
+    
+    let node: ListNode<T> | undefined = this.head;
+
+    for (let i: number = 0; i < index; i++) {
+      node = node?.next;
+    }
+
+    node!.prev!.next = node!.next;
+    node!.next!.prev = node!.prev;
+    this.length--;
     
     return node!.value;
   }
