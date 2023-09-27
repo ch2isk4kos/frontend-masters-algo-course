@@ -129,7 +129,6 @@ export class DoublyLinkedList<T> {
     node.next = next;
     next!.prev = node;
     this.length++;
-    console.log("this.head.prev:", this.head?.prev);
   }
 
     /**
