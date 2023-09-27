@@ -145,7 +145,7 @@ export class DoublyLinkedList<T> {
    * @throws error if index is out of bounds
    */
 
-  public pop(): T {
+  public removeHead(): T {
     if (!this.head) throw new Error("Index out of bounds");
 
     const remove = this.head;
