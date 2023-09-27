@@ -166,6 +166,20 @@ export class DoublyLinkedList<T> {
 
     return remove.value;
   }
+
+  public removeTail(): T {
+    if (!this.head) throw new Error("Index out of bounds");
+
+    const node = this.tail;
+
+    if (this.head === this.tail) this.head = undefined;
+    else this.tail!.prev!.next = undefined;
+
+    this.tail = this.tail!.prev;
+    this.length--;
+
+    return node!.value;
+  }
 }
 
 const list = new DoublyLinkedList();
