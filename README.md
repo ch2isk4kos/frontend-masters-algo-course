@@ -1,4 +1,4 @@
-# The Last Algorithms Course You'll Need
+# TypeScript Algorithms
 
 ## Course Resources
 
