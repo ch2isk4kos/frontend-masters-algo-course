@@ -210,16 +210,31 @@ var DoublyLinkedList = /** @class */ (function () {
         this.head = previous;
         return this;
     };
+    /**
+     * .clear()
+     *
+     * Clears all nodes from a list.
+     * @returns nothing
+     */
     DoublyLinkedList.prototype.clear = function () {
         this.head = undefined;
         this.tail = undefined;
         this.length = 0;
     };
+    DoublyLinkedList.prototype.toArray = function () {
+        var arr = [];
+        var current = this.head;
+        while (current) {
+            arr.push(current.value);
+            current = current.next;
+        }
+        return arr;
+    };
     return DoublyLinkedList;
 }());
 exports.DoublyLinkedList = DoublyLinkedList;
 var list = new DoublyLinkedList();
-console.log("list", list); // list DoublyLinkedList { head: undefined, tail: undefined, length: 0 }
+console.log("list:", list); // DoublyLinkedList { head: undefined, tail: undefined, length: 0 }
 var val1 = "Hello,";
 var val2 = "World";
 var val3 = "!";
@@ -227,10 +242,67 @@ var val4 = "Whole";
 list.prepend(val1);
 list.append(val2);
 list.append(val3);
+console.log("list:", list);
+// DoublyLinkedList {
+//   head: <ref *1> ListNode {
+//     value: 'Hello,',
+//     prev: undefined,
+//     next: ListNode { value: 'World', prev: [Circular *1], next: [ListNode] }
+//   },
+//   tail: <ref *2> ListNode {
+//     value: '!',
+//     prev: ListNode { value: 'World', prev: [ListNode], next: [Circular *2] },
+//     next: undefined
+//   },
+//   length: 3
+// }
 list.insertAt(1, val4);
 console.log("list:", list);
+// DoublyLinkedList {
+//   head: <ref *1> ListNode {
+//     value: 'Hello,',
+//     prev: undefined,
+//     next: ListNode { value: 'Whole', prev: [Circular *1], next: [ListNode] }
+//   },
+//   tail: <ref *2> ListNode {
+//     value: '!',
+//     prev: ListNode { value: 'World', prev: [ListNode], next: [Circular *2] },
+//     next: undefined
+//   },
+//   length: 4
+// }
 list.removeAt(1);
 console.log("list:", list);
+// DoublyLinkedList {
+//   head: <ref *1> ListNode {
+//     value: 'Hello,',
+//     prev: undefined,
+//     next: ListNode { value: 'World', prev: [Circular *1], next: [ListNode] }
+//   },
+//   tail: <ref *2> ListNode {
+//     value: '!',
+//     prev: ListNode { value: 'World', prev: [ListNode], next: [Circular *2] },
+//     next: undefined
+//   },
+//   length: 3
+// }
 console.log("reversed list:", list.reverse());
+// DoublyLinkedList {
+//   head: <ref *1> ListNode {
+//     value: '!',
+//     prev: undefined,
+//     next: ListNode { value: 'World', prev: [Circular *1], next: [ListNode] }
+//   },
+//   tail: <ref *2> ListNode {
+//     value: 'Hello,',
+//     prev: ListNode { value: 'World', prev: [ListNode], next: [Circular *2] },
+//     next: undefined
+//   },
+//   length: 3
+// }
 list.clear();
-console.log("cleared list:", list);
+console.log("cleared list:", list); // DoublyLinkedList { head: undefined, tail: undefined, length: 0 }
+list.prepend(val1);
+list.append(val2);
+list.append(val3);
+console.log("list to array:", list.toArray());

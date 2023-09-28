@@ -344,4 +344,4 @@ console.log("cleared list:", list); // DoublyLinkedList { head: undefined, tail:
 list.prepend(val1);
 list.append(val2);
 list.append(val3);
-console.log("list to array:", list.toArray());
+console.log("list to array:", list.toArray()); // [ 'Hello,', 'World', '!' ]
