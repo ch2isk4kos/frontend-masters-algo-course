@@ -263,6 +263,21 @@ list.prepend(val1);
 list.append(val2);
 list.append(val3);
 
+console.log("list:", list);
+// DoublyLinkedList {
+//   head: <ref *1> ListNode {
+//     value: 'Hello,',
+//     prev: undefined,
+//     next: ListNode { value: 'World', prev: [Circular *1], next: [ListNode] }
+//   },
+//   tail: <ref *2> ListNode {
+//     value: '!',
+//     prev: ListNode { value: 'World', prev: [ListNode], next: [Circular *2] },
+//     next: undefined
+//   },
+//   length: 3
+// }
+
 list.insertAt(1, val4);
 console.log("list:", list);
 // DoublyLinkedList {
