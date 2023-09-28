@@ -1,5 +1,5 @@
 /**
- * List Node Class
+ * List Node
  * Represents a node used in a doubly linked list.
  * 
  * @template T is the type of a node's value.
