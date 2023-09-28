@@ -186,6 +186,12 @@ var DoublyLinkedList = /** @class */ (function () {
         this.length--;
         return node.value;
     };
+    /**
+     * .reverse()
+     *
+     * Reverse the order of a list.
+     * @returns a list in reversed order
+     */
     DoublyLinkedList.prototype.reverse = function () {
         if (!this.head)
             return null;
@@ -204,6 +210,11 @@ var DoublyLinkedList = /** @class */ (function () {
         this.head = previous;
         return this;
     };
+    DoublyLinkedList.prototype.clear = function () {
+        this.head = undefined;
+        this.tail = undefined;
+        this.length = 0;
+    };
     return DoublyLinkedList;
 }());
 exports.DoublyLinkedList = DoublyLinkedList;
@@ -221,3 +232,5 @@ console.log("list:", list);
 list.removeAt(1);
 console.log("list:", list);
 console.log("reversed list:", list.reverse());
+list.clear();
+console.log("cleared list:", list);
