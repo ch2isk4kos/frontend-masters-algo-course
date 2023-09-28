@@ -250,6 +250,13 @@ export class DoublyLinkedList<T> {
     this.length = 0;
   }
 
+  /**
+   * .toArray() 
+   * 
+   * Converts a linked list to an array: O(n)
+   * @returns an array of a list
+   */
+
   public toArray(): T[] {
     const arr:T[] = [];
     let current: ListNode<T> | undefined = this.head;
