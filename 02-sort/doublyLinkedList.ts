@@ -17,7 +17,7 @@ export class ListNode<T> {
 }
 
 /**
- * Doubly Linked List Implementation
+ * Doubly Linked List
  * 
  * A doubly linked list is a data structure which contain a head, tail and length property,
  * and consist of nodes, each of which store a value and a pointer to the next/previous node.
