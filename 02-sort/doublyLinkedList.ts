@@ -163,7 +163,7 @@ export class DoublyLinkedList<T> {
     return node!.value;
   }
 
-    /**
+  /**
    * .removeHead()
    * 
    * Removes a node from the head of the list: O(1)
@@ -269,6 +269,10 @@ export class DoublyLinkedList<T> {
     return arr;
   }
 }
+
+/**
+ * DOUBLY LINKED LIST "TESTS"
+ */
 
 const list = new DoublyLinkedList();
 console.log("list:", list); // DoublyLinkedList { head: undefined, tail: undefined, length: 0 }
