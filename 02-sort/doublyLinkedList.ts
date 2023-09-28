@@ -249,6 +249,18 @@ export class DoublyLinkedList<T> {
     this.tail = undefined;
     this.length = 0;
   }
+
+  public toArray(): T[] {
+    const arr:T[] = [];
+    let current: ListNode<T> | undefined = this.head;
+
+    while (current) {
+      arr.push(current.value);
+      current = current.next;
+    }
+
+    return arr;
+  }
 }
 
 const list = new DoublyLinkedList();
@@ -328,3 +340,8 @@ console.log("reversed list:", list.reverse());
 
 list.clear();
 console.log("cleared list:", list); // DoublyLinkedList { head: undefined, tail: undefined, length: 0 }
+
+list.prepend(val1);
+list.append(val2);
+list.append(val3);
+console.log("list to array:", list.toArray());
