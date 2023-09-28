@@ -205,6 +205,30 @@ export class DoublyLinkedList<T> {
 
     return node!.value;
   }
+
+  public reverse(): this | null {
+    if (!this.head) return null;
+
+    let current: ListNode<T> | undefined = this.head;
+    let next: ListNode<T> | undefined = undefined;
+    let previous: ListNode<T> | undefined = undefined;
+
+    while (current) {
+      next = current.next;
+      previous = current.prev;
+
+      current.next = previous;
+      current.prev = next;
+
+      previous = current;
+      current = next;
+    }
+
+    this.tail = this.head;
+    this.head = previous;
+
+    return this;
+  }
 }
 
 const list = new DoublyLinkedList();
@@ -219,6 +243,7 @@ list.prepend(val1);
 list.append(val2);
 list.append(val3);
 list.insertAt(1, val4);
-console.log("list", list);
+console.log("list:", list);
 list.removeAt(1);
-console.log("list", list);
+console.log("list:", list);
+console.log("reversed list:", list.reverse());
