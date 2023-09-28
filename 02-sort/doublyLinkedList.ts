@@ -237,6 +237,13 @@ export class DoublyLinkedList<T> {
     return this;
   }
 
+  /**
+   * .clear()
+   * 
+   * Clears all nodes from a list.
+   * @returns nothing
+   */
+
   public clear(): void {
     this.head = undefined;
     this.tail = undefined;
@@ -245,7 +252,7 @@ export class DoublyLinkedList<T> {
 }
 
 const list = new DoublyLinkedList();
-console.log("list", list); // list DoublyLinkedList { head: undefined, tail: undefined, length: 0 }
+console.log("list:", list); // DoublyLinkedList { head: undefined, tail: undefined, length: 0 }
 
 const val1 = "Hello,";
 const val2 = "World";
@@ -255,10 +262,54 @@ const val4 = "Whole"
 list.prepend(val1);
 list.append(val2);
 list.append(val3);
+
 list.insertAt(1, val4);
 console.log("list:", list);
+// DoublyLinkedList {
+//   head: <ref *1> ListNode {
+//     value: 'Hello,',
+//     prev: undefined,
+//     next: ListNode { value: 'Whole', prev: [Circular *1], next: [ListNode] }
+//   },
+//   tail: <ref *2> ListNode {
+//     value: '!',
+//     prev: ListNode { value: 'World', prev: [ListNode], next: [Circular *2] },
+//     next: undefined
+//   },
+//   length: 4
+// }
+
 list.removeAt(1);
 console.log("list:", list);
+// DoublyLinkedList {
+//   head: <ref *1> ListNode {
+//     value: 'Hello,',
+//     prev: undefined,
+//     next: ListNode { value: 'World', prev: [Circular *1], next: [ListNode] }
+//   },
+//   tail: <ref *2> ListNode {
+//     value: '!',
+//     prev: ListNode { value: 'World', prev: [ListNode], next: [Circular *2] },
+//     next: undefined
+//   },
+//   length: 3
+// }
+
+
 console.log("reversed list:", list.reverse());
+// DoublyLinkedList {
+//   head: <ref *1> ListNode {
+//     value: '!',
+//     prev: undefined,
+//     next: ListNode { value: 'World', prev: [Circular *1], next: [ListNode] }
+//   },
+//   tail: <ref *2> ListNode {
+//     value: 'Hello,',
+//     prev: ListNode { value: 'World', prev: [ListNode], next: [Circular *2] },
+//     next: undefined
+//   },
+//   length: 3
+// }
+
 list.clear();
-console.log("cleared list:", list);
+console.log("cleared list:", list); // DoublyLinkedList { head: undefined, tail: undefined, length: 0 }
