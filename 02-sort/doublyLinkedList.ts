@@ -236,6 +236,12 @@ export class DoublyLinkedList<T> {
 
     return this;
   }
+
+  public clear(): void {
+    this.head = undefined;
+    this.tail = undefined;
+    this.length = 0;
+  }
 }
 
 const list = new DoublyLinkedList();
@@ -254,3 +260,5 @@ console.log("list:", list);
 list.removeAt(1);
 console.log("list:", list);
 console.log("reversed list:", list.reverse());
+list.clear();
+console.log("cleared list:", list);
