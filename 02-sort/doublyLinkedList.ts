@@ -206,6 +206,13 @@ export class DoublyLinkedList<T> {
     return node!.value;
   }
 
+  /**
+   * .reverse()
+   * 
+   * Reverse the order of a list.
+   * @returns a list in reversed order
+   */
+
   public reverse(): this | null {
     if (!this.head) return null;
 
